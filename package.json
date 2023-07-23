@@ -2,7 +2,7 @@
 	"name": "calcium-ext",
 	"displayName": "Calcium Programming Language",
 	"description": "Calcium Programming Language Extension for Visual Studio Code",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.80.0"
 	},
