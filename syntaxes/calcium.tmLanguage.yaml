@@ -1,0 +1,336 @@
+$schema: "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json"
+scopeName: "source.calcium"
+patterns:
+    - { include: "#root" }
+repository:
+    # Root
+    root:
+        patterns:
+            - { include: "#string" }
+            - { include: "#keyword" }
+            - { include: "#number" }
+            - { include: "#identifier" }
+            - { include: "#group" }
+            - { include: "#index" }
+            - { include: "#list" }
+            - { include: "#symbol" }
+            - { include: "#comment" }
+
+    # Components
+    string:
+        begin: '"'
+        beginCaptures:
+            0:
+                name: "punctuation.string.begin.calcium"
+        end: '"'
+        endCaptures:
+            0:
+                name: "punctuation.string.end.calcium"
+        name: "string.quoted.string.calcium"
+        patterns:
+            - { include: "#interpolation" }
+    interpolation:
+        begin: "{"
+        beginCaptures:
+            0:
+                name: "punctuation.interpolation.begin.calcium"
+        end: "}"
+        endCaptures:
+            0:
+                name: "punctuation.interpolation.end.calcium"
+        name: "meta.structure.interpolation.calcium"
+        patterns:
+            - { include: "#root" }
+    keyword:
+        patterns:
+            - { include: "#keyword-arithmetic" }
+            - { include: "#keyword-block" }
+            - { include: "#keyword-variable" }
+            - { include: "#keyword-miscellaneous" }
+            - { include: "#keyword-constant" }
+    number:
+        match: "[+-]?(?:(?:\\d+(?:\\.\\d*)?|\\d*\\.\\d+)(?:e[+-]?\\d+)?|inf)"
+        name: "constant.numeric.number.calcium"
+    identifier:
+        match: "[a-zA-Z_][a-zA-Z0-9_]*"
+        name: "variable.name.identifier.calcium"
+    group:
+        begin: "\\("
+        beginCaptures:
+            0:
+                name: "punctuation.group.begin.calcium"
+        end: "\\)"
+        endCaptures:
+            0:
+                name: "punctuation.group.end.calcium"
+        name: "meta.structure.group.calcium"
+        patterns:
+            - { include: "#root" }
+    index:
+        begin: "\\["
+        beginCaptures:
+            0:
+                name: "punctuation.index.begin.calcium"
+        end: "\\]"
+        endCaptures:
+            0:
+                name: "punctuation.index.end.calcium"
+        name: "meta.structure.index.calcium"
+        patterns:
+            - { include: "#root" }
+    list:
+        begin: "{"
+        beginCaptures:
+            0:
+                name: "punctuation.list.begin.calcium"
+        end: "}"
+        endCaptures:
+            0:
+                name: "punctuation.list.end.calcium"
+        name: "meta.structure.list.calcium"
+        patterns:
+            - { include: "#root" }
+    symbol:
+        patterns:
+            - { include: "#symbol-arithmetic" }
+            - { include: "#symbol-logic" }
+            - { include: "#symbol-comparison" }
+            - { include: "#symbol-list" }
+            - { include: "#symbol-miscellaneous" }
+
+    # Arithmetic keywords
+    keyword-arithmetic:
+        patterns:
+            - { include: "#keyword-arithmetic-add" }
+            - { include: "#keyword-arithmetic-subtract" }
+            - { include: "#keyword-arithmetic-multiply" }
+            - { include: "#keyword-arithmetic-divide" }
+            - { include: "#keyword-arithmetic-modulo" }
+    keyword-arithmetic-add:
+        match: "add"
+        name: "support.type.keyword.arithmetic.add.calcium"
+    keyword-arithmetic-subtract:
+        match: "subtract"
+        name: "support.type.keyword.arithmetic.subtract.calcium"
+    keyword-arithmetic-multiply:
+        match: "multiply"
+        name: "support.type.keyword.arithmetic.multiply.calcium"
+    keyword-arithmetic-divide:
+        match: "divide"
+        name: "support.type.keyword.arithmetic.divide.calcium"
+    keyword-arithmetic-modulo:
+        match: "modulo"
+        name: "support.type.keyword.arithmetic.modulo.calcium"
+
+    # Block keywords
+    keyword-block:
+        patterns:
+            - { include: "#keyword-block-catch" }
+            - { include: "#keyword-block-elif" }
+            - { include: "#keyword-block-else" }
+            - { include: "#keyword-block-end" }
+            - { include: "#keyword-block-for" }
+            - { include: "#keyword-block-function" }
+            - { include: "#keyword-block-if" }
+            - { include: "#keyword-block-lambda" }
+            - { include: "#keyword-block-try" }
+            - { include: "#keyword-block-while" }
+    keyword-block-catch:
+        match: "catch"
+        name: "support.type.keyword.block.catch.calcium"
+    keyword-block-elif:
+        match: "elif"
+        name: "support.type.keyword.block.elif.calcium"
+    keyword-block-else:
+        match: "else"
+        name: "support.type.keyword.block.else.calcium"
+    keyword-block-end:
+        match: "end"
+        name: "support.type.keyword.block.end.calcium"
+    keyword-block-for:
+        match: "for"
+        name: "support.type.keyword.block.for.calcium"
+    keyword-block-function:
+        match: "function"
+        name: "support.type.keyword.block.function.calcium"
+    keyword-block-if:
+        match: "if"
+        name: "support.type.keyword.block.if.calcium"
+    keyword-block-lambda:
+        match: "lambda"
+        name: "support.type.keyword.block.lambda.calcium"
+    keyword-block-try:
+        match: "try"
+        name: "support.type.keyword.block.try.calcium"
+    keyword-block-while:
+        match: "while"
+        name: "support.type.keyword.block.while.calcium"
+
+    # Variable keywords
+    keyword-variable:
+        patterns:
+            - { include: "#keyword-variable-const" }
+            - { include: "#keyword-variable-delete" }
+            - { include: "#keyword-variable-var" }
+    keyword-variable-const:
+        match: "const"
+        name: "support.type.keyword.variable.const.calcium"
+    keyword-variable-delete:
+        match: "delete"
+        name: "support.type.keyword.variable.delete.calcium"
+    keyword-variable-var:
+        match: "var"
+        name: "support.type.keyword.variable.var.calcium"
+
+    # Miscellaneous keywords
+    keyword-miscellaneous:
+        patterns:
+            - { include: "#keyword-miscellaneous-exit" }
+            - { include: "#keyword-miscellaneous-export" }
+            - { include: "#keyword-miscellaneous-import" }
+            - { include: "#keyword-miscellaneous-raise" }
+            - { include: "#keyword-miscellaneous-return" }
+    keyword-miscellaneous-exit:
+        match: "exit"
+        name: "support.type.keyword.miscellaneous.exit.calcium"
+    keyword-miscellaneous-export:
+        match: "export"
+        name: "support.type.keyword.miscellaneous.export.calcium"
+    keyword-miscellaneous-import:
+        match: "import"
+        name: "support.type.keyword.miscellaneous.import.calcium"
+    keyword-miscellaneous-raise:
+        match: "raise"
+        name: "support.type.keyword.miscellaneous.raise.calcium"
+    keyword-miscellaneous-return:
+        match: "return"
+        name: "support.type.keyword.miscellaneous.return.calcium"
+
+    # Constant keywords
+    keyword-constant:
+        patterns:
+            - { include: "#keyword-constant-false" }
+            - { include: "#keyword-constant-null" }
+            - { include: "#keyword-constant-true" }
+            - { include: "#keyword-constant-__file__" }
+            - { include: "#keyword-constant-__parameters__" }
+    keyword-constant-false:
+        match: "false"
+        name: "constant.language.keyword.constant.false.calcium"
+    keyword-constant-null:
+        match: "null"
+        name: "constant.language.keyword.constant.null.calcium"
+    keyword-constant-true:
+        match: "true"
+        name: "constant.language.keyword.constant.true.calcium"
+    keyword-constant-__file__:
+        match: "__file__"
+        name: "constant.language.keyword.constant.__file__.calcium"
+    keyword-constant-__parameters__:
+        match: "__parameters__"
+        name: "constant.language.keyword.constant.__parameters__.calcium"
+
+    # Arithmetic symbols
+    symbol-arithmetic:
+        patterns:
+            - { include: "#symbol-arithmetic-add" }
+            - { include: "#symbol-arithmetic-subtract" }
+            - { include: "#symbol-arithmetic-multiply" }
+            - { include: "#symbol-arithmetic-divide" }
+            - { include: "#symbol-arithmetic-modulo" }
+    symbol-arithmetic-add:
+        match: "\\+"
+        name: "punctuation.symbol.arithmetic.add.calcium"
+    symbol-arithmetic-subtract:
+        match: "-"
+        name: "punctuation.symbol.arithmetic.subtract.calcium"
+    symbol-arithmetic-multiply:
+        match: "\\*"
+        name: "punctuation.symbol.arithmetic.multiply.calcium"
+    symbol-arithmetic-divide:
+        match: "\\/"
+        name: "punctuation.symbol.arithmetic.divide.calcium"
+    symbol-arithmetic-modulo:
+        match: "%"
+        name: "punctuation.symbol.arithmetic.modulo.calcium"
+
+    # Logic symbols
+    symbol-logic:
+        patterns:
+            - { include: "#symbol-logic-and" }
+            - { include: "#symbol-logic-or" }
+            - { include: "#symbol-logic-not" }
+    symbol-logic-and:
+        match: "&"
+        name: "punctuation.symbol.logic.and.calcium"
+    symbol-logic-or:
+        match: "\\|"
+        name: "punctuation.symbol.logic.or.calcium"
+    symbol-logic-not:
+        match: "!"
+        name: "punctuation.symbol.logic.not.calcium"
+
+    # Comparison symbols
+    symbol-comparison:
+        patterns:
+            - { include: "#symbol-comparison-equal" }
+            - { include: "#symbol-comparison-not-equal" }
+            - { include: "#symbol-comparison-less-equal" }
+            - { include: "#symbol-comparison-greater-equal" }
+            - { include: "#symbol-comparison-less" }
+            - { include: "#symbol-comparison-greater" }
+    symbol-comparison-equal:
+        match: "=="
+        name: "punctation.symbol.comparison.equal.calcium"
+    symbol-comparison-not-equal:
+        match: "!="
+        name: "punctation.symbol.comparison.not-equal.calcium"
+    symbol-comparison-less-equal:
+        match: "<="
+        name: "punctation.symbol.comparison.less-equal.calcium"
+    symbol-comparison-greater-equal:
+        match: ">="
+        name: "punctation.symbol.comparison.greater-equal.calcium"
+    symbol-comparison-less:
+        match: "<"
+        name: "punctation.symbol.comparison.less.calcium"
+    symbol-comparison-greater:
+        match: ">"
+        name: "punctation.symbol.comparison.greater.calcium"
+
+    # List symbols
+    symbol-list:
+        patterns:
+            - { include: "#symbol-list-colon" }
+            - { include: "#symbol-list-comma" }
+    symbol-list-colon:
+        match: ":"
+        name: "punctuation.symbol.list.colon.calcium"
+    symbol-list-comma:
+        match: ","
+        name: "punctuation.symbol.list.comma.calcium"
+
+    # Miscellaneous
+    symbol-miscellaneous:
+        patterns:
+            - { include: "#symbol-miscellaneous-dollar" }
+            - { include: "#symbol-miscellaneous-dot" }
+    symbol-miscellaneous-dollar:
+        match: "\\$"
+        name: "punctuation.symbol.miscellaneous.dollar.calcium"
+    symbol-miscellaneous-dot:
+        match: "\\."
+        name: "punctuation.symbol.miscellaneous.dot.calcium"
+
+    # Comment
+    comment:
+        patterns:
+            - { include: "#comment-line" }
+            - { include: "#comment-block" }
+    comment-line:
+        match: "#!.*?\\n"
+        name: "comment.line.calcium"
+    comment-block:
+        begin: "#:"
+        end: ":#"
+        name: "comment.block.calcium"

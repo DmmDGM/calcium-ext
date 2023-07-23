@@ -1,71 +1,34 @@
-# calcium-ext README
+# Calcium
 
-This is the README for your extension "calcium-ext". After writing up a brief description, we recommend including the following sections.
+## About
 
-## Features
+Calcium is an interpreted programming language created by DmmD GM, inspired by [iiPython's xpp programming language](https://github.com/iiPythonx/xpp).
+It is built using only [Node.js](https://nodejs.org/en) (v18.7.0) and [TypeScript](https://www.typescriptlang.org) (v4.7.4). Its syntax is inspired by [xpp](https://github.com/iiPythonx/xpp), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>), [Assembly](https://en.wikipedia.org/wiki/Assembly_language), and [Batch](https://en.wikipedia.org/wiki/Batch_file). Additionally, the language supports nested scopes, complex objects, garbage collection, and custom libraries / modules.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Prerequisites
 
-For example if there is an image subfolder under your extension project workspace:
+-   [Node.js](https://nodejs.org/en/download)
+    -   Minimum Tested: v18.7.0
+-   [TypeScript](https://www.typescriptlang.org/download)
+    -   Minimum Tested: v4.7.4
 
-\!\[feature X\]\(images/feature-x.png\)
+## Installation
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Additional Resources
 
-## Requirements
+-   Documentation
+-   [Github Repository](https://github.com/DmmDGM/calcium)
+-   [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=DmmDGM.calcium-ext)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Credits
 
-## Extension Settings
+-   [DmmD GM](https://github.com/DmmDGM)
+    -   Lead Developer
+-   [iiPython](https://github.com/iiPythonx)
+    -   Bug Tester
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Contact
 
-For example:
+-   Discord: DmmD GM#9423
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[↑ Top](#calcium)
